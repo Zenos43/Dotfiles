@@ -1,4 +1,4 @@
-local discipline = require("ren.discipline")
+local discipline = require("zenos.discipline")
 
 discipline.cowboy()
 
@@ -64,9 +64,9 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 keymap.set("n", "<leader>r", function()
-	require("ren.hsl").replaceHexWithHSL()
+	require("zenos.hsl").replaceHexWithHSL()
 end)
 
 keymap.set("n", "<leader>i", function()
-	require("ren.lsp").toggleInlayHints()
+	require("zenos.lsp").toggleInlayHints()
 end)
