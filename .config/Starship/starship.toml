@@ -1,64 +1,82 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Use custom format
 format = """
-[░▒▓](#a3aed2)\
-[  ](bg:#a3aed2 fg:#090c0c)\
-[](bg:#769ff0 fg:#a3aed2)\
-$directory\
-[](fg:#769ff0 bg:#394260)\
-$git_branch\
-$git_status\
-[](fg:#394260 bg:#212736)\
-$nodejs\
-$rust\
-$golang\
-$php\
-[](fg:#212736 bg:#1d2230)\
-$time\
-[ ](fg:#1d2230)\
-\n$character"""
+[╭─](white)$username$hostname in $directory$package$java$python$git_branch$battery$cmd_duration
+[╰─](white)$character """
 
-[directory]
-style = "fg:#e3e5e5 bg:#769ff0"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-
-[git_branch]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
-
-[git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[php]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[time]
+# Username settings
+[username]
+show_always = true
+style_root = "bold red"
+style_user = "bold yellow"
+format = "[$user]($style) "
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+# Hostname settings
+[hostname]
+ssh_only = false
+format =  "on [$hostname](bold red)"
+trim_at = ".companyname.com"
+disabled = false
+
+# Directory indicator
+[directory]
+read_only = "🔒"
+style = "bold cyan"
+read_only_style = "red"
+truncation_length = 8
+truncation_symbol = "…/"
+format = "[$read_only]($read_only_style)[$path]($style) "
+disabled = false
+
+# Package Version Config
+[package]
+format = "via [🎁 $version](208 bold) "
+
+# Java settings
+[java]
+symbol = "☕ "
+style = "red dimmed"
+format = "via [${symbol}${version}]($style) "
+
+# Python settings
+[python]
+symbol = "🐍 "
+style = "yellow bold"
+python_binary = "python3"
+pyenv_version_name = true
+
+# git settings
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+
+# Battery information
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+# cmd_duration config
+[cmd_duration]
+show_milliseconds = true
+style = "bold yellow"
+format = "took [$duration]($style)"
+
+# Charakter config
+[character]
+format = "$symbol"
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red) "
+vicmd_symbol = "[❮](bold green)"
+disabled = false
