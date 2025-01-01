@@ -4,6 +4,13 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- Spawn a pwsh shell in login mode
+config.default_prog = { 'pwsh.exe', '-NoLogo' }
+
+-- Launch size startup 
+
+config.initial_cols = 100
+config.initial_rows = 30
 -- This is where you actually apply your config choices
 
 config.font =
