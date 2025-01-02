@@ -24,7 +24,16 @@ return {
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function ()
-    require('mason').setup()
+    require('mason').setup(
+	{
+	      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+	})
     require('mason-lspconfig').setup({
       -- Install these LSPs automatically
       ensure_installed = {
@@ -50,6 +59,10 @@ return {
         'isort',
         'mypy',
         'pylint',
+		'eslint_d',
+		'stylua',
+		'black',
+		'prettier',
       },
     })
 

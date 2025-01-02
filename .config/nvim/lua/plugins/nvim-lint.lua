@@ -7,11 +7,15 @@ return {
     -- Define a table of linters for each filetype (not extension).
     -- Additional linters can be found here: https://github.com/mfussenegger/nvim-lint#available-linters
     require('lint').linters_by_ft = {
+	  javascript = { "eslint_d" },
+      typescript = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
+      svelte = { "eslint_d" },
       python = {
-        -- Uncomment whichever linters you prefer
         -- 'flake8',
         -- 'mypy',
-        -- 'pylint',
+        'pylint',
       }
     }
 
@@ -23,5 +27,9 @@ return {
         require("lint").try_lint()
       end,
     })
-  end
+	
+	vim.keymap.set("n", "<leader>l", function()
+      lint.try_lint()
+    end, { desc = "Trigger linting for current file" })
+  end,
 }

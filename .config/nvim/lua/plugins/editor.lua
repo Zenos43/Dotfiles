@@ -33,21 +33,21 @@ return {
 			},
 		},
 	},
-	{
-		"saghen/blink.cmp",
-		opts = {
-			completion = {
-				menu = {
-					winblend = vim.o.pumblend,
-				},
-			},
-			signature = {
-				window = {
-					winblend = vim.o.pumblend,
-				},
-			},
-		},
-	},
+--	{
+--		"saghen/blink.cmp",
+--		opts = {
+--			completion = {
+--				menu = {
+--					winblend = vim.o.pumblend,
+--				},
+--			},
+--			signature = {
+--				window = {
+--					winblend = vim.o.pumblend,
+--				},
+--			},
+--		},
+--	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -62,6 +62,12 @@ return {
 			--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
 		}
+	},
+	{
+		"rcarriga/nvim-notify",
+		opts = {
+			timeout = 5000,
+		},
 	},
 	
 		-- filename

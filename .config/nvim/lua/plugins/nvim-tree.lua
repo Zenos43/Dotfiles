@@ -14,6 +14,30 @@ return {
         },
       }
     },
+	view = {
+        width = 35,
+        relativenumber = false,
+      },
+      -- change folder arrow icons
+      renderer = {
+        indent_markers = {
+          enable = true,
+        },
+        icons = {
+          glyphs = {
+            folder = {
+              arrow_closed = "", -- arrow when folder is closed
+              arrow_open = "", -- arrow when folder is open
+            },
+          },
+        },
+      },
+	 filters = {
+        custom = { ".DS_Store" },
+      },
+      git = {
+        ignore = false,
+      },
   },
   config = function (_, opts)
     -- Recommended settings to disable default netrw file explorer

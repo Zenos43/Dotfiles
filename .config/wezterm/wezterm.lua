@@ -5,31 +5,30 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Spawn a pwsh shell in login mode
-config.default_prog = { 'pwsh.exe', '-NoLogo' }
+config.default_prog = { "pwsh.exe", "-NoLogo" }
 
--- Launch size startup 
+-- Launch size startup
 
 config.initial_cols = 120
 config.initial_rows = 30
 -- This is where you actually apply your config choices
 
-config.font =
-  wezterm.font('JetBrainsMono Nerd Font', { weight = 'Bold', italic = true })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = true })
 warn_about_missing_glyphs = false
 config.font_size = 10
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.7
-config.win32_system_backdrop = 'Acrylic'
+config.window_background_opacity = 0.5
+config.win32_system_backdrop = "Acrylic"
 config.macos_window_background_blur = 10
 
 -- my mouse config:
 config.mouse_bindings = {
-  {
-    event = { Drag = { streak = 1, button = 'Left' } },
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.StartWindowDrag,
-  },
+	{
+		event = { Drag = { streak = 1, button = "Left" } },
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.StartWindowDrag,
+	},
 }
 
 -- my coolnight colorscheme:
@@ -47,3 +46,4 @@ config.colors = {
 
 -- and finally, return the configuration to wezterm
 return config
+
