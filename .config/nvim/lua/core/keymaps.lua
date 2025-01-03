@@ -1,5 +1,3 @@
-local discipline = require("zenos.discipline")
-discipline.cowboy()
 
 -- Set leader key to space
 vim.g.mapleader = " "
@@ -20,6 +18,37 @@ keymap.set("n", "<Leader>d", '"_d')
 keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
+
+-- Noice keymaps
+keymap.set("n", "<leader>nt", function()	-- Noice history in Telescope
+  require("noice").cmd("telescope")
+end)
+
+keymap.set("n", "<leader>nl", function()	-- show the last message
+  require("noice").cmd("last")
+end)
+
+keymap.set("n", "<leader>nh", function()	-- shows debugging stats
+  require("noice").cmd("stats")
+end)
+
+-- Lsp Hover Doc Scrolling
+keymap.set({ "n", "i", "s" }, "<c-f>", function()
+  if not require("noice.lsp").scroll(4) then
+    return "<c-f>"
+  end
+end, { silent = true, expr = true })
+
+keymap.set({ "n", "i", "s" }, "<c-b>", function()
+  if not require("noice.lsp").scroll(-4) then
+    return "<c-b>"
+  end
+end, { silent = true, expr = true })
+
+
+-- Disable continuations
+keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
+keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')

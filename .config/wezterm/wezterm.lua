@@ -9,8 +9,8 @@ config.default_prog = { "pwsh.exe", "-NoLogo" }
 
 -- Launch size startup
 
-config.initial_cols = 120
-config.initial_rows = 30
+config.initial_cols = 130
+config.initial_rows = 40
 -- This is where you actually apply your config choices
 
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = true })
@@ -18,7 +18,7 @@ warn_about_missing_glyphs = false
 config.font_size = 10
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.6
 config.win32_system_backdrop = "Acrylic"
 config.macos_window_background_blur = 10
 
