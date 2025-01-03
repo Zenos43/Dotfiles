@@ -19,6 +19,9 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
+-- Incremental rename
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
+
 -- Noice keymaps
 keymap.set("n", "<leader>nt", function()	-- Noice history in Telescope
   require("noice").cmd("telescope")
