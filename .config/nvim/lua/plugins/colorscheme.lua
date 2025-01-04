@@ -11,6 +11,9 @@ return {
     require('solarized-osaka').setup(opts) -- Replace this with your favorite colorscheme
     vim.cmd("colorscheme solarized-osaka") -- Replace this with your favorite colorscheme
 
+
+-- autocmd VimEnter * hi NvimTreeNormal guifg=#839495 guibg=#00141a
+
     -- Custom diff colors
     vim.cmd([[
       autocmd VimEnter * hi DiffAdd guifg=#00FF00 guibg=#005500

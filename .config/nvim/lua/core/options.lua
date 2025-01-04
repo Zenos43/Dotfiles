@@ -1,7 +1,6 @@
 local opt = vim.opt
 
 vim.opt.encoding = "utf-8"
--- vim.opt.fileencoding = "utf-8"
 vim.opt.title = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
@@ -9,7 +8,6 @@ vim.opt.termguicolors = true
 vim.opt.backup = false
 vim.opt.fillchars:append { eob = " " }
 vim.opt.showcmd = true
-vim.opt.cmdheight = 1
 vim.opt.cmdheight = 1
 vim.opt.scrolloff = 10
 vim.opt.inccommand = "split"
@@ -37,8 +35,22 @@ opt.expandtab = true
 opt.autoindent = true
 vim.bo.softtabstop = 2
 
+-- highlight color for headlines.nvim 
+vim.cmd([[highlight Headline1 guibg=#c5c5c5 guifg=#000000]])
+vim.cmd([[highlight Headline2 guibg=#aeaeae guifg=#000000]])
+vim.cmd([[highlight Headline3 guibg=#979797 guifg=#000000]])
+vim.cmd([[highlight Headline4 guibg=#808080 guifg=#000000]])
+vim.cmd([[highlight Headline5 guibg=#696969 guifg=#000000]])
+vim.cmd([[highlight Headline6 guibg=#525252 guifg=#000000]])
+vim.cmd([[highlight CodeBlock guibg=#3b3b3b]])
+vim.cmd([[highlight Dash guibg=#202020 gui=bold]])
+
 -- Line Wrapping
 opt.wrap = false
+
+-- search 
+opt.hlsearch = true
+opt.incsearch = true
 
 -- Search Settings
 opt.ignorecase = true
@@ -52,6 +64,7 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Appearance
+
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
@@ -65,10 +78,6 @@ opt.backspace = "indent,eol,start"
 
 -- Clipboard
 opt.clipboard:append("unnamedplus")
-
--- Split Windows
-opt.splitright = true
-opt.splitbelow = true
 
 -- Consider - as part of keyword
 opt.iskeyword:append("-")

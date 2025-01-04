@@ -13,6 +13,10 @@ return {
 		},
 	},
 	
+		-- Wakatime
+	{ 'wakatime/vim-wakatime', lazy = false },
+	
+		-- Incremental rename
 	{
 		"smjonas/inc-rename.nvim",
 		config = function()

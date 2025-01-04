@@ -20,7 +20,25 @@ keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
 -- Incremental rename
-vim.keymap.set("n", "<leader>rn", ":IncRename ")
+keymap.set("n", "<leader>rn", ":IncRename ")
+
+-- Toggle Term
+keymap.set("n", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal", noremap = true, silent = true }) -- Toggle Terminal on/off
+keymap.set("n", "<leader>th", ":ToggleTerm direction=horizontal<cr>", { desc = "Terminal Horizontal", noremap = true, silent = true }) -- Open Terminal horizontal
+keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical<cr>", { desc = "Terminal Vertical", noremap = true, silent = true }) -- Open Terminal vertical
+keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<cr>", { desc = "Terminal Floating", noremap = true, silent = true }) -- Open Terminal floating
+
+function _G.set_terminal_keymaps()
+  local opts = {buffer = 0}
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+end
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Noice keymaps
 keymap.set("n", "<leader>nt", function()	-- Noice history in Telescope
@@ -112,7 +130,6 @@ keymap.set("n", "<leader>qc", ":cclose<CR>") -- close quickfix list
 keymap.set("n", "<leader>r", function()
 	require("zenos.hsl").replaceHexWithHSL()
 end)
-
 
 -- Vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle maximize tab
