@@ -31,14 +31,17 @@ return {
 		isort = {
 		command = "isort",
 		args = {
-				"-",
+		"--profile",
+        "black",
+		"-",
 		},
 	},
 		black = {
 		command = "black",
 		args = {
+		"--fast",
 		"--line-length",
-		"120",
+		"80",
 		"--quiet",
 		"-",
 		},

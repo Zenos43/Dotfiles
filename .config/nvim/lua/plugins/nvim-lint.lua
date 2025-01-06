@@ -13,9 +13,9 @@ return {
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
       python = {
-        -- 'flake8',
+        'flake8',
         -- 'mypy',
-        'pylint',
+        --'pylint',
       }
     }
 

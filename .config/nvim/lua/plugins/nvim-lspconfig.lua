@@ -8,6 +8,10 @@ return {
     -- LSP Management
     -- https://github.com/williamboman/mason.nvim
     { 'williamboman/mason.nvim' },
+	
+	-- https://github.com/jay-babu/mason-nvim-dap.nvim
+    { 'jay-babu/mason-nvim-dap.nvim' },
+	
     -- https://github.com/williamboman/mason-lspconfig.nvim
     { 'williamboman/mason-lspconfig.nvim' },
 
@@ -33,6 +37,10 @@ return {
           package_uninstalled = "✗",
         },
       },
+	})
+	require("mason-nvim-dap").setup({
+		ensure_installed = { "python" },
+		automatic_installation = { exclude = {} },
 	})
     require('mason-lspconfig').setup({
       -- Install these LSPs automatically
@@ -62,6 +70,7 @@ return {
 		'eslint_d',
 		'stylua',
 		'black',
+		'ruff-lsp',
 		'prettier',
       },
     })
