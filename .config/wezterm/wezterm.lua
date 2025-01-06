@@ -13,6 +13,12 @@ config.initial_cols = 130
 config.initial_rows = 40
 -- This is where you actually apply your config choices
 
+-- tab bar
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.tab_and_split_indices_are_zero_based = true
+config.scrollback_lines = 3000
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = true })
 warn_about_missing_glyphs = false
 config.font_size = 10
@@ -30,6 +36,12 @@ config.mouse_bindings = {
 		action = wezterm.action.StartWindowDrag,
 	},
 }
+config.window_padding = {
+	left = 3,
+	right = 3,
+	top = 3,
+	bottom = 3,
+}
 
 -- my coolnight colorscheme:
 config.colors = {
@@ -46,4 +58,3 @@ config.colors = {
 
 -- and finally, return the configuration to wezterm
 return config
-
