@@ -1,0 +1,16 @@
+{
+	"$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+	"runtime.version": "LuaJIT",
+	"workspace.checkThirdParty": false,
+	"diagnostics.globals": ["vim"],
+	"workspace.checkThirdParty": false,
+	"hint.enable": false,
+	"workspace.library": [
+    "$VIMRUNTIME"
+	],
+    "workspace.maxPreload": 3000,
+	"Lua.format.defaultConfig": {
+    "indent_style": "space",
+    "indent_size": "2"
+	}
+}

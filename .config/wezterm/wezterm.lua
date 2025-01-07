@@ -13,6 +13,8 @@ config.initial_cols = 130
 config.initial_rows = 40
 -- This is where you actually apply your config choices
 
+-- Disable ligatures
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- tab bar
 config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = true
@@ -40,7 +42,7 @@ config.window_padding = {
 	left = 3,
 	right = 3,
 	top = 3,
-	bottom = 3,
+	bottom = 0,
 }
 
 -- my coolnight colorscheme:
