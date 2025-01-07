@@ -7,6 +7,7 @@ $env:PYTHONIOENCODING='utf-8'
 
 Invoke-Expression (&starship init powershell)
 $ENV:STARSHIP_CONFIG = "C:\Users\Admin\.config\Starship\starship.toml"
+$WarningPreference = "SilentlyContinue"
 
 # Oh-My-Posh
 
@@ -30,6 +31,8 @@ git init
 
 Set-Alias g git
 
+function ll { eza --color=always --long --git --no-filesize --icons=always -la -g --group-directories-first --no-time --no-permissions }
+
 Set-Alias ex explorer
 
 function gs { git status }
@@ -47,7 +50,7 @@ function lazyg {
     git commit -m "this is auto add-commit-push"
     git push
 }
-Set-Alias ll ls
+# Set-Alias ll ls
 Set-Alias ff fastfetch
 
 ################ Plugins

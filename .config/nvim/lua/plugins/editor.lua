@@ -12,18 +12,19 @@ return {
 			},
 		},
 	},
-	
-		-- Wakatime
-	{ 'wakatime/vim-wakatime', lazy = false },
-	
-		-- Incremental rename
+
+	-- Wakatime
+	{ "wakatime/vim-wakatime", lazy = false },
+
+	-- Incremental rename
 	{
 		"smjonas/inc-rename.nvim",
 		config = function()
 			require("inc_rename").setup()
 		end,
 	},
-		-- Refactoring tool
+
+	-- Refactoring tool
 	{
 		"ThePrimeagen/refactoring.nvim",
 		keys = {
@@ -40,8 +41,8 @@ return {
 		},
 		opts = {},
 	},
-	
-		{
+
+	{
 		"simrat39/symbols-outline.nvim",
 		keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
 		cmd = "SymbolsOutline",
@@ -49,7 +50,7 @@ return {
 			position = "right",
 		},
 	},
-	
+
 	{
 		"echasnovski/mini.hipatterns",
 		event = "BufReadPre",
@@ -71,50 +72,49 @@ return {
 			},
 		},
 	},
---	{
---		"saghen/blink.cmp",
---		opts = {
---			completion = {
---				menu = {
---					winblend = vim.o.pumblend,
---				},
---			},
---			signature = {
---				window = {
---					winblend = vim.o.pumblend,
---				},
---			},
---		},
---	},
+	--	{
+	--		"saghen/blink.cmp",
+	--		opts = {
+	--			completion = {
+	--				menu = {
+	--					winblend = vim.o.pumblend,
+	--				},
+	--			},
+	--			signature = {
+	--				window = {
+	--					winblend = vim.o.pumblend,
+	--				},
+	--			},
+	--		},
+	--	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
 			lsp = {
 				hover = { silent = true },
-		},
+			},
 			presets = {
 				lsp_doc_border = true, -- add a border to hover docs and signature help
-				},
+			},
 		},
 		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-		"MunifTanjim/nui.nvim",
+			"MunifTanjim/nui.nvim",
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-		"rcarriga/nvim-notify",
-		}
+			"rcarriga/nvim-notify",
+		},
 	},
 	{
 		"rcarriga/nvim-notify",
 		opts = {
-			timeout = 5000,
-			
+			timeout = 1500,
 		},
 	},
-	
-		-- filename
+
+	-- filename
 	{
 		"b0o/incline.nvim",
 		dependencies = { "craftzdog/solarized-osaka.nvim" },
@@ -145,5 +145,41 @@ return {
 			})
 		end,
 	},
-	
-	}
+
+	{
+		"piersolenski/wtf.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			search_engine = "google",
+			hooks = {
+				request_started = nil,
+				request_finished = nil,
+			},
+			-- Add custom colours
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+			context = true,
+			language = "english",
+		},
+		keys = {
+			{
+				mode = { "n" },
+				"<leader>sw",
+				function()
+					require("wtf").search()
+				end,
+				desc = "Search diagnostic with Google",
+			},
+			{
+				mode = { "n" },
+				"<leader>wh",
+				function()
+					require("wtf").history()
+				end,
+				desc = "Populate the quickfix list with previous chat history",
+			},
+		},
+	},
+}
