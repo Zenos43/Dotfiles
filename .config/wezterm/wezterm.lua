@@ -29,7 +29,7 @@ warn_about_missing_glyphs = false
 config.font_size = 10
 config.enable_tab_bar = false -- Disable tab bar
 config.window_decorations = "RESIZE" -- Hide window title
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.6
 config.win32_system_backdrop = "Acrylic"
 config.macos_window_background_blur = 10
 
