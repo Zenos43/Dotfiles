@@ -9,7 +9,7 @@ config.default_prog = { "pwsh.exe", "-NoLogo" } -- Using Powershell as default s
 
 -- Launch size startup
 
-config.initial_cols = 130
+config.initial_cols = 140
 config.initial_rows = 40
 
 -- Disable ligatures
@@ -29,9 +29,9 @@ warn_about_missing_glyphs = false
 config.font_size = 10
 config.enable_tab_bar = false -- Disable tab bar
 config.window_decorations = "RESIZE" -- Hide window title
-config.window_background_opacity = 0.6
+config.window_background_opacity = 0.8
 config.win32_system_backdrop = "Acrylic"
-config.macos_window_background_blur = 10
+--config.macos_window_background_blur = 10
 
 -- Config keymapping for wezterm
 config.keys = {
@@ -119,30 +119,6 @@ wezterm.on("update-right-status", function(window, pane)
 	window:set_right_status(wezterm.format({
 		{ Text = date .. " " },
 	}))
-end)
-
-wezterm.on("format-tab-title", function(tab)
-	local has_unseen_output = false
-	if not tab.is_active then
-		for _, pane in ipairs(tab.panes) do
-			if pane.has_unseen_output then
-				has_unseen_output = true
-				break
-			end
-		end
-	end
-
-	local title = string.format("%s", get_process(tab))
-
-	if has_unseen_output then
-		return {
-			{ Foreground = { Color = "Orange" } },
-			{ Text = title },
-		}
-	end
-	return {
-		{ Text = title },
-	}
 end)
 
 -- window padding

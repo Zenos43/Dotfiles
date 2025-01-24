@@ -16,6 +16,11 @@ $WarningPreference = "SilentlyContinue"
 
 ####### Alias ##########
 
+
+# replace cd = zoxide 
+
+Set-Alias -Name cd -Value z -Option AllScope
+
 # MPV Alias
 
 Set-Alias m mpv
