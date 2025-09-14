@@ -29,7 +29,7 @@ warn_about_missing_glyphs = false
 config.font_size = 10
 config.enable_tab_bar = false -- Disable tab bar
 config.window_decorations = "RESIZE" -- Hide window title
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.4
 config.win32_system_backdrop = "Acrylic"
 --config.macos_window_background_blur = 10
 
@@ -138,8 +138,8 @@ config.colors = {
 	cursor_fg = "#011423",
 	selection_bg = "#033259",
 	selection_fg = "#CBE0F0",
-	ansi = { "#282C34", "#61AFEF", "#56B6C2", "#98C379", "#C678DD", "#E06C75", "#DCDFE4", "#E5C07B" },
-	brights = { "#282C34", "#61AFEF", "#56B6C2", "#98C379", "#C678DD", "#E06C75", "#DCDFE4", "#E5C07B" },
+	ansi = { "#E3CCCC", "#61AFEF", "#56B6C2", "#98C379", "#C678DD", "#E06C75", "#DCDFE4", "#E5C07B" },
+	brights = { "#A3C9D1", "#61AFEF", "#56B6C2", "#98C379", "#C678DD", "#E06C75", "#DCDFE4", "#E5C07B" },
 }
 
 -- and finally, return the configuration to wezterm
